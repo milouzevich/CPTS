@@ -1,21 +1,24 @@
 # Questions à se poser à chaque énumération : 
-```
 Sans Credential
+```
+
         Quelle identité ?
-         ↓
+              ↓
         Quels groupes ?
-         ↓
+              ↓
         Quels droits ?
-         ↓
+              ↓
         Quels services ?
-         ↓
+              ↓
         Quelles relations ?
-         ↓
+              ↓
         Quels chemins ?
 ```
 
 
 Avec des credential
+```
+        CREDENTIAL 
          ↓
         VALIDER l'authentification
          ↓
@@ -31,7 +34,7 @@ Avec des credential
          ↓
         Quels chemins ?
 
-
+```
 
                  NOUVEAU CREDENTIAL
                         ↓
