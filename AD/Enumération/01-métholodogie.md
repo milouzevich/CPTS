@@ -1,4 +1,5 @@
 # Questions à se poser à chaque énumération : 
+```
 Sans Credential
         Quelle identité ?
          ↓
@@ -11,7 +12,7 @@ Sans Credential
         Quelles relations ?
          ↓
         Quels chemins ?
-
+```
 
 
 Avec des credential
