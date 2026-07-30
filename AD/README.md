@@ -32,7 +32,7 @@ Nmap
        └── Nom du domaine ?
 
 
-```text
+
 ==============================
 CHECKLIST ACTIVE DIRECTORY
 ==============================
