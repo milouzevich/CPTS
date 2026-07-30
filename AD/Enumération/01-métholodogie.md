@@ -19,23 +19,23 @@ Sans Credential
 Avec des credential
 ```
         CREDENTIAL 
-         ↓
+              ↓
         VALIDER l'authentification
-         ↓
+              ↓
         Quelle identité ?
-         ↓
+              ↓
         Quels groupes ?
-         ↓
+              ↓
         Quels droits ?
-         ↓
+              ↓
         Quels services ?
-         ↓
+              ↓
         Quelles relations ?
-         ↓
+              ↓
         Quels chemins ?
 
 ```
-
+```
                  NOUVEAU CREDENTIAL
                         ↓
                  AUTHENTIFICATION
@@ -53,3 +53,4 @@ Avec des credential
                   ATTACK PATHS
                         ↓
                 SHORTEST PATH
+```
