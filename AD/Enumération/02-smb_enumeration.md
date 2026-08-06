@@ -23,6 +23,9 @@ netexec smb 10.10.10.10 -u '' -p '' --rid-brute | grep SidTypeUser | cut -d'\' -
 netexec smb 10.10.10.10 -u '' -p '' --shares
 netexec smb 10.10.10.10 -u '' -p '' --pass-pol
 
+impacket-lookupsid 'cicada.htb/guest'@cicada.htb -no-pass
+impacket-lookupsid 'cicada.htb/guest'@cicada.htb -no-pass | grep 'SidTypeUser' | sed 's/.*\\\(.*\) (SidTypeUser)/\1/' > users.txt
+
 # Consulter les partages 
 netexec smb 10.10.10.10 -u '' -p '' --spider HR --regex "."
 netexec smb 10.10.10.10 -u '' -p '' --share HR --get-file "Notice from HR.txt" "Notice from HR.txt"
