@@ -27,8 +27,7 @@ netexec smb 10.10.10.10 -u '' -p '' --pass-pol
 netexec smb 10.10.10.10 -u '' -p '' --spider HR --regex "."
 netexec smb 10.10.10.10 -u '' -p '' --share HR --get-file "Notice from HR.txt" "Notice from HR.txt"
 
-# Recherche les comptes avec SPN
-netexec ldap DC_IP -u '' -p '' --query "(servicePrincipalName=*)" "sAMAccountName servicePrincipalName"
+
 ```
 
 # connection sur le service 
