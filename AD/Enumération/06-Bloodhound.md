@@ -25,8 +25,8 @@ bloodhound-start
 
 Pour voir les droits de notre users sur les autres objets vérifier les Outbound Object Control
 
-users 
-analyser les users
-domain admin 
-analyser qui est membre du groupe
+1. users 
+2. analyser les users
+3. domain admin 
+4. analyser qui est membre du groupe
 
