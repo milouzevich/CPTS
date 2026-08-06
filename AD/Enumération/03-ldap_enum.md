@@ -3,6 +3,8 @@ https://notes.benheater.com/books/active-directory/page/ldapsearch
 https://devconnected.com/how-to-search-ldap-using-ldapsearch-examples/
 https://medium.com/@rajkumarkumawat/%EF%B8%8F-%EF%B8%8F-hacking-lab-tutorial-ldap-enumeration-the-ultimate-guide-for-ethical-hackers-07ede1ecb474
 
+
+## Sans Credentials
 ```bash 
 # Vérifier si le bind anonyme est autorisé
 ldapsearch -x -H ldap://10.129.38.105 -s base namingContexts
