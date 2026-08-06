@@ -54,7 +54,9 @@ ldapsearch -x -H ldap://10.129.234.71  -b "DC=baby,DC=vl" "(&(objectCategory=per
 # lister les dishintingName
 ldapsearch -x -b "dc=baby, dc=vl" "*" -H ldap://BabyDC.baby.vl | grep dn
 ```
-
+```
+netexec ldap BABYDC.baby.vl -u '' -p '' --query "(sAMAccountName=*)" ""
+```
 
 
 ### Avec des credentials
