@@ -140,9 +140,13 @@ export  TERM=xterm-256color
 
 
 ref https://delinea.com/blog/linux-privilege-escalation
+
 ref : https://gtfobins.github.io/ 
+
 LinEnum : https://github.com/rebootuser/LinEnum
+
 LinPeas  :  https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+
 espoinne les processus pspy : https://github.com/DominicBreuker/pspy?tab=readme-ov-file
 
 psexec : pour lister les processus
