@@ -1,4 +1,4 @@
-## BLODDHOUND
+## BLOODHOUND
 ref : https://www.it-connect.fr/chapitres/bloodhound-pathfinding-rechercher-les-chemins-dattaque/
 ref : https://www.it-connect.fr/chapitres/bloodhound-search-recherches-sur-un-noeud/
 
