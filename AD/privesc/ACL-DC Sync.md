@@ -1,6 +1,6 @@
 Identifier les droits
-DS-Replication-Get-change-All
-DS-Replication-Get-change
+1. DS-Replication-Get-change-All
+2. DS-Replication-Get-change
 
 Récupération du TGS du user ayant les droits sur la délégation de replication AD
 ```
