@@ -1,5 +1,5 @@
 
-
+```
 
                   ACTIVE DIRECTORY
                           │
@@ -19,3 +19,4 @@
                         │                   ↓
                         ↓               PTH / auth
                        S4U
+````
