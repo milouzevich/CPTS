@@ -82,3 +82,9 @@ bloodyad --host 10.129.228.253 -d sequel.htb -u Ryan.Cooper -p 'NuclearMosquito3
 
 bloodyad --host 10.129.232.88 -d fluffy.htb -u p.agila -p 'prometheusx-303' get membership p.agila
 ```
+
+```
+# Recherche les comptes avec SPN
+netexec ldap DC_IP -u '' -p '' --query "(servicePrincipalName=*)" "sAMAccountName servicePrincipalName"
+```
+
