@@ -30,3 +30,11 @@ netexec smb 10.10.10.10 -u '' -p '' --share HR --get-file "Notice from HR.txt" "
 # Recherche les comptes avec SPN
 netexec ldap DC_IP -u '' -p '' --query "(servicePrincipalName=*)" "sAMAccountName servicePrincipalName"
 ```
+
+# connection sur le service 
+```
+smbclient -N //<IP>/<RESSOURCE>
+smbclient -U <USER> //<IP>/<RESSOURCE>
+# commande help, ls, get et put pour la manipulation des fichiers
+
+```
