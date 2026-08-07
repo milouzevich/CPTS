@@ -106,6 +106,8 @@ Pour créer un Silver ticket il faut :
 ```bash
 # MDP :  Trustno1
 # SID :  S-1-5-21-2330692793-3312915120-706255856
+Get-LocalUser -Name $env:USERNAME | Select sid
+
 pypykatz crypto nt Trustno1
 ```
 #### 2. Forger un ticket pour le user Administrator
