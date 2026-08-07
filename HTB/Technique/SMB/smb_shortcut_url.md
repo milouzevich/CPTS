@@ -31,3 +31,4 @@ Sur la machine ATTACK
 sudo responder -I tun0 -A
 ```
 
+![alt text](https://github.com/milouzevich/CPTS/blob/main/HTB/Technique/SMB/Pasted%20image%2020260804154219.png)
