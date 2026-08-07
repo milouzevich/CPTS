@@ -36,3 +36,6 @@ SharpHound :
 PrintSpoofer :
 -> https://github.com/itm4n/PrintSpoofer/releases/tag/v1.0
 
+Lazagne: 
+-> https://github.com/alessandroz/lazagne
+
