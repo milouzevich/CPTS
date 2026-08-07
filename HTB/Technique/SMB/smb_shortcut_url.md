@@ -1,4 +1,5 @@
 Exploit le smb shorcut url
+
 Sur le SMB de la machine cible, il faut avoir les droits en ecriture sur le dossier exploitable. 
 
 Lorsque les utilisateurs viendront se connecter le fichier sera téléchargé et le hash du user sera capté par responder. 
