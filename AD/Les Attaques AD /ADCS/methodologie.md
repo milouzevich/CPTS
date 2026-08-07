@@ -1,3 +1,9 @@
+### Identifiation du service dans le scan 
+```
+3269/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: sequel.htb, Site: Default-First-Site-Name)
+```
+
+
 ### Récupérer les hashs de comptes avec certipyad
 ```bash
  certipy-ad shadow auto -username p.agila@fluffy.htb -password 'prometheusx-303' -account ca_svc
