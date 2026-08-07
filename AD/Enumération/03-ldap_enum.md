@@ -58,6 +58,10 @@ ldapsearch -x -b "dc=baby, dc=vl" "*" -H ldap://BabyDC.baby.vl | grep dn
 netexec ldap BABYDC.baby.vl -u '' -p '' --query "(sAMAccountName=*)" ""
 ```
 
+```bash
+impacket-GetADUsers <DOMAIN_NAME>/ -dc-ip <IP_DC> -debug
+```
+
 
 ### Avec des credentials
 
