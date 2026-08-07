@@ -1,4 +1,4 @@
-Exploit le smb shorcut url
+### Exploit le smb shorcut url
 
 Sur le SMB de la machine cible, il faut avoir les droits en ecriture sur le dossier exploitable. 
 ![alt text](https://github.com/milouzevich/CPTS/blob/main/HTB/Technique/SMB/Pasted%20image%2020260804152513.png)
