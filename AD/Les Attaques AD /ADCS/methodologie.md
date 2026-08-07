@@ -18,7 +18,7 @@ certipy-ad find -u 'ca_svc' -hashes ca0f4f9e9eb8a092addf53bb03fc98c8 -dc-ip 10.1
 ### ESC1 
 
 ### ECS16
-Cette attaque exploit une mauvaise configuration ou CA (Certificat d'authorité) es configuré globalement à désactivé. ``szIOD_NDTS_CA_SECURITY_EXT`
+Cette attaque exploit une mauvaise configuration ou CA (Certificat d'authorité) es configuré globalement à désactivé. `szIOD_NDTS_CA_SECURITY_EXT`
 la methode est donc : 
 1. mettre à jour le UPN (User Principal Name) d'un user vers l'Adminstrator
 ```bash
