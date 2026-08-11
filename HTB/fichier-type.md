@@ -67,7 +67,9 @@ gobuster dir -u http://name.htb/ -w  /usr/share/wordlists/seclists/Discovery/Web
 gobuster dir -u http://name.htb/ -w  /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -e php, html,txt -b 302 -f 
 gobuster dir -u http://10.10.10.85:3000/ -w  /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt 
 
-# recherche des types fichier extension 
+# recherche des types fichier extension
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/web-extensions.txt -u http://10.129.227.180/indexFUZZ
+
 ffuf -u http://facts.htb/FUZZ -w /usr/share/wordlists/dirb/common.txt -mc 302
 ```
 
