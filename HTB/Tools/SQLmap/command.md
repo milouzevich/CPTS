@@ -1,4 +1,5 @@
 ref : https://www.vaadata.com/en/blog/sqlmap-the-tool-for-detecting-and-exploiting-sql-injections/
+
 ref : https://hackviser.com/tactics/tools/sqlmap
 
 ```bash
