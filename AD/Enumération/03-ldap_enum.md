@@ -70,7 +70,7 @@ impacket-GetADUsers <DOMAIN_NAME>/ -dc-ip <IP_DC> -debug
 ldapsearch -D 'Julia.Wong' -w 'Computer1' -H ldap://10.129.44.190 -b "DC=breach,DC=vl" "(objectClass=user)"
 
 # Avoir uniquement les informations essentiels
-ldapsearch -D 'Julia.Wong@breach.vl' -w 'Computer1' -H ldap://10.129.44.190 -b "DC=breach,DC=vl" "(&(objectCategory=person)(objectClass=user))" sAMAccountName description memberOf userPrincipalName servicePrincipalName
+ldapsearch -D 'Julia.Wong@breach.vl' -w 'Computer1' -H ldap://10.129.44.190 -b "DC=breach,DC=vl" "(&(objectCategory=person)(objectClass=user))" sAMAccountName description memberOf userPrincipalName servicePrincipalName Description
 ```
 ```bash 
 # trouver liste des users
