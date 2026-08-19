@@ -19,7 +19,8 @@ netexec winrm 10.10.10.10 -u '' -p ''
 netexec smb 10.10.10.10 -u '' -p '' --users
 netexec smb 10.10.10.10 -u '' -p '' --groups
 netexec smb 10.10.10.10 -u '' -p '' --rid-brute
-netexec smb 10.10.10.10 -u '' -p '' --rid-brute | grep SidTypeUser | cut -d'\' -f2 | cut -d' ' -f1 | tee users.txt                          
+netexec smb 10.10.10.10 -u '' -p '' --rid-brute | grep SidTypeUser | cut -d'\' -f2 | cut -d' ' -f1 | tee users.txt
+netexec smb 10.10.10.10 -u '' -p '' --rid-brute | grep SidTypeGroup | cut -d'\' -f2 | sed 's/(SidTypeGroup)/ /' | tee groups.txt             
 netexec smb 10.10.10.10 -u '' -p '' --shares
 netexec smb 10.10.10.10 -u '' -p '' --pass-pol
 
