@@ -1,3 +1,6 @@
+Depot github de l'outil : https://github.com/ropnop/kerbrute
+
+
 ```bash 
 # identifie les comptes valides sans authentification LDAP
 kerbrute userenum --dc <DC_FQDN> -d <DOMAIN> users.txt
