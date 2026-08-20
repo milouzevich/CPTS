@@ -19,7 +19,7 @@ Set-DomainObject -Identity <targetuser> -Set @{serviceprincipalname
 ```
 
 #### Linux 
-1. <code class="color:#8E2626">targetedKerberoast.py</code> **(le plus simple, tout-en-un)**
+1. <code style="color:#8E2626;">targetedKerberoast.py</code> **(le plus simple, tout-en-un)**
 
 Il détecte automatiquement les comptes sur lesquels tu as les droits, ajoute le SPN, récupère le ticket, et le retire — en une seule commande :
 
