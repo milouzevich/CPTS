@@ -13,6 +13,7 @@ Les gMSA sont souvent utilisés pour faire tourner des services, des tâches pla
 ## Commandes Linux
 
 **`gMSADumper.py`** (le plus utilisé, fait tout automatiquement) :
+
 ref de l'outil : https://github.com/micahvandeusen/gMSADumper
 ```bash
 gMSADumper.py -u <user> -p '<password>' -d <domain>
