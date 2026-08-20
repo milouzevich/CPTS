@@ -10,3 +10,4 @@ C'est ce qu'on appelle le **Targeted Kerberoasting**.
 3. **Demande du ticket TGS** : tu demandes un ticket de service Kerberos pour ce SPN — le KDC te répond avec un ticket chiffré avec le hash NTLM du compte cible.
 4. **Extraction et cracking** : tu extrais le ticket (format hashcat/john), et tu tentes de casser le mot de passe offline.
 5. **(Nettoyage)** : idéalement tu retires le SPN après, pour rester discret / propre — en pentest réel c'est important, sur HTB moins critique.
+*
