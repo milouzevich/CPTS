@@ -1,3 +1,10 @@
+Ref : https://github.com/ly4k/Certipy
+Ref : https://github.com/ly4k/Certipy/wiki
+Ref : https://github.com/ly4k/Certipy/wiki/05-%E2%80%90-Usage
+
+
+
+
 ```bash
 # 1. Recon
 certipy find -u 'user@domain' -p 'pass' -dc-ip <dc_ip> -vulnerable -stdout
