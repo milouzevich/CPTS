@@ -1,7 +1,18 @@
 ```
 IP CIBLE : 10.10.10.10
 ```
+1. Board de pistes (à copier pour CHAQUE machine)
 
+But : ne jamais rester bloqué sans savoir quoi faire ensuite. Dès qu'une piste apparaît (port, endpoint, credential potentiel, version), elle va ici — même si tu ne la testes pas tout de suite.
+
+Machine : ___________ Date : ___________ Difficulté : ___________ OS : ___________
+
+#	Piste identifiée	Source (nmap/gobuster/burp/...)	Testée ?	Résultat
+1			☐	
+2			☐	
+3			☐	
+4			☐	
+5			☐	
 
 ## Reconnaissance
 ```bash 
