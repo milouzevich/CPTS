@@ -15,6 +15,23 @@ But : ne jamais rester bloqué sans savoir quoi faire ensuite. Dès qu'une piste
 |4|||☐||
 |5|||☐||
 
+## 3. Debrief post-machine (5 min, à ne JAMAIS sauter)
+
+**Machine :** ___________ **Réussie seul ? Avec aide ? Writeup ?** ___________
+
+1. Qu'est-ce qui m'a bloqué le plus longtemps ?
+2. Combien de temps perdu, et sur quelle piste exactement ?
+3. Quelle étape de checklist ai-je sautée ou mal faite ?
+4. Technique/pattern à retenir pour la prochaine fois :
+5. Un mot sur mon état (stress, précipitation, fatigue) : ___________
+
+### Registre de patterns récurrents (à alimenter au fil des machines)
+
+|Pattern / technique|Vu sur (machine)|Contexte de réapparition probable|
+|---|---|---|
+||||
+||||
+
 ## Reconnaissance
 ```bash 
 ping -c2 <IP>
