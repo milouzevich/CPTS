@@ -15,7 +15,7 @@ But : ne jamais rester bloqué sans savoir quoi faire ensuite. Dès qu'une piste
 |4|||☐||
 |5|||☐||
 
-## 3. Debrief post-machine (5 min, à ne JAMAIS sauter)
+## Debrief post-machine (5 min, à ne JAMAIS sauter)
 
 **Machine :** ___________ **Réussie seul ? Avec aide ? Writeup ?** ___________
 
