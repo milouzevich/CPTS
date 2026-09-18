@@ -9,3 +9,5 @@ Bruteforce login CMS avec wordlist générée via cewl (pas rockyou direct) |	Bl
 Pattern / technique	| Vu sur	| Contexte de réapparition probable |
 --- | --- | ---
 SeMachineAccountPrivilege + Account Operators → penser noPac | Forest | shadow credentials sur les AD avec délégation permissive
+ReadGMSAPassword → lire msDS-ManagedPassword → hash NT du compte GMSA |	Search |	Tout AD avec comptes de service GMSA + droits délégués via ACL
+Réflexe : droit inhabituel → HackTricks + BloodHound Help → adapter |	Search	| Toutes les machines AD Hard/Insane
