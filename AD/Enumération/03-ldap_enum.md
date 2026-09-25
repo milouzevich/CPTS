@@ -72,6 +72,12 @@ ldapsearch -D 'Julia.Wong@breach.vl' -w 'Computer1' -H ldap://10.129.44.190 -b "
 
 # Avoir uniquement les informations essentiels
 ldapsearch -D 'Julia.Wong@breach.vl' -w 'Computer1' -H ldap://10.129.44.190 -b "DC=breach,DC=vl" "(&(objectCategory=person)(objectClass=user))" sAMAccountName description memberOf userPrincipalName servicePrincipalName Description
+
+# Focaliser sur un user spécifique
+ldapsearch -x -H ldap://10.129.66.123 -D 'judith.mader@certified.htb' -w 'judith09' -b 'DC=certified,DC=htb'
+  '(sAMAccountName=judith.mader)' '*'
+
+
 ```
 ```bash 
 # trouver liste des users
