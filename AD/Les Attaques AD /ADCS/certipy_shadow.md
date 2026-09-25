@@ -1,4 +1,4 @@
-certipy shadow — Shadow Credentials
+**certipy shadow — Shadow Credentials**
 
 C'est une technique complètement séparée d'ADCS. Elle n'exploite pas les templates de certificats — elle exploite l'attribut msDS-KeyCredentialLink directement sur un objet AD.
 
