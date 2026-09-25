@@ -74,9 +74,26 @@ ldapsearch -D 'Julia.Wong@breach.vl' -w 'Computer1' -H ldap://10.129.44.190 -b "
 ldapsearch -D 'Julia.Wong@breach.vl' -w 'Computer1' -H ldap://10.129.44.190 -b "DC=breach,DC=vl" "(&(objectCategory=person)(objectClass=user))" sAMAccountName description memberOf userPrincipalName servicePrincipalName Description
 
 # Focaliser sur un user spécifique
-ldapsearch -x -H ldap://10.129.66.123 -D 'judith.mader@certified.htb' -w 'judith09' -b 'DC=certified,DC=htb'
-  '(sAMAccountName=judith.mader)' '*'
+ldapsearch -x -H ldap://10.129.66.123 -D 'judith.mader@certified.htb' -w 'judith09' -b 'DC=certified,DC=htb' '(sAMAccountName=judith.mader)' '*'
 
+# Un seul attribut (memberOf uniquement)
+ldapsearch -x -H ldap://10.129.66.123 \
+  -D 'judith.mader@certified.htb' -w 'judith09' \
+  -b 'DC=certified,DC=htb' \
+  '(sAMAccountName=judith.mader)' memberOf
+
+# Pour un autre user (management_svc)
+ldapsearch -x -H ldap://10.129.66.123 \
+  -D 'judith.mader@certified.htb' -w 'judith09' \
+  -b 'DC=certified,DC=htb' \
+  '(sAMAccountName=management_svc)' '*'
+
+# Filtrer la sortie sur un attribut précis
+ldapsearch -x -H ldap://10.129.66.123 \
+  -D 'judith.mader@certified.htb' -w 'judith09' \
+  -b 'DC=certified,DC=htb' \
+  '(sAMAccountName=judith.mader)' memberOf \
+  | grep -i "memberOf"
 
 ```
 ```bash 
