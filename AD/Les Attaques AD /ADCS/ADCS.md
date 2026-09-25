@@ -232,3 +232,13 @@ Certificate Templates
 - ☐ Dès que certipy find ne trouve rien avec un compte → essayer avec un **compte plus privilégié**
 - ☐ Toujours `ntpdate` avant tout move Kerberos/certipy
 - ☐ Toujours vérifier le FQDN dans `/etc/hosts` (DC01.domaine.htb, pas juste domaine.htb)
+
+Le playbook couvre tout ce dont tu as besoin. Voici la logique à retenir en 3 phrases :
+
+Énumération → certipy find -vulnerable avec chaque nouveau compte que tu obtiens — pas juste au début, à chaque escalade.
+
+Identification → certipy te dit directement l'ESC dans [!] Vulnerabilities. Si tu vois ESC1 → certipy req -upn administrator. Si tu vois ESC7 → passer par certipy ca pour approuver ta propre requête.
+
+Exploitation finale → toujours la même : certipy auth -pfx administrator.pfx → hash NT → evil-winrm ou secretsdump.
+
+Sur Certified tu as ca_operator avec probablement des droits sur la CA elle-même — relance certipy find avec ce compte et dis-moi ce que tu vois dans [!] Vulnerabilities.
