@@ -10,6 +10,73 @@ Un DC peut jouer le rôle de **CA (Certificate Authority)** — il délivre des 
 
 ---
 
+**3 niveaux d'identification — dans cet ordre :**
+
+---
+
+**Niveau 1 — Nmap (dès le scan initial)**
+
+```bash
+# Ports qui trahissent ADCS
+# 80/443 avec /certsrv
+# 9389 = AD Web Services
+```
+
+```bash
+# Vérifier manuellement si le web enrollment est actif
+curl -k https://IP/certsrv/
+curl -k http://IP/certsrv/
+```
+Si tu obtiens une page de login → ADCS avec Web Enrollment actif → potentiel **ESC8**.
+
+---
+
+**Niveau 2 — Certipy (dès que tu as des creds valides)**
+
+```bash
+# Avec mot de passe
+certipy-ad find \
+  -u 'USER@domaine.htb' \
+  -p 'PASSWORD' \
+  -dc-ip IP_DC \
+  -vulnerable \
+  -stdout
+
+# Avec hash NT
+certipy-ad find \
+  -u 'USER@domaine.htb' \
+  -hashes ':HASH_NT' \
+  -dc-ip IP_DC \
+  -vulnerable \
+  -stdout
+```
+
+Ce que tu lis dans la sortie :
+```
+[!] Vulnerabilities
+  ESC1 : ...    ← exploitable directement
+  ESC4 : ...    ← besoin de droits sur le template
+  ESC7 : ...    ← besoin de droits sur la CA
+```
+
+---
+
+**Niveau 3 — Netexec (vérification rapide)**
+
+```bash
+# Vérifie si ADCS est présent sur le domaine
+netexec ldap IP_DC \
+  -u 'USER' \
+  -p 'PASSWORD' \
+  -M adcs
+```
+
+---
+
+**Réflexe important :**
+
+Relancer `certipy find` à **chaque nouveau compte obtenu** — un template invisible avec un compte peut devenir visible avec un autre. Sur Certified, ca_operator voit probablement des templates que management_svc ne voyait pas.
+
 ## 2. Workflow Certipy — toujours dans cet ordre
 
 ### Étape 1 — Énumération (dès que tu as des creds valides)
