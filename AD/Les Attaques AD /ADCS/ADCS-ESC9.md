@@ -1,4 +1,4 @@
-ESC9 — Process complet
+**ESC9 — Process complet**
 
 La logique : le template n'intègre pas l'extension de sécurité qui lie le certificat au compte demandeur. Donc si tu changes le UPN (UserPrincipalName) d'un compte avant de demander le certificat, le certificat sera mappé au compte dont tu as usurpé le UPN.
 
