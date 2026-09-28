@@ -1,7 +1,7 @@
 Process de lecture LinPEAS — dans cet ordre
-
+```bash 
 wget https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh
-
+```
 
 1. Groupes du user en premier (avant même de lire le reste)
 
