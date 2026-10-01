@@ -25,3 +25,8 @@
    → LinPEAS/WinPEAS
    → Analyser les résultats un par un
 ```
+
+| Port | Service | Version       | Intérêt            |
+| ---- | ------- | ------------- | ------------------ |
+| 80   | HTTP    | Apache/2.4.18 | systeme de fichier |
+| 2222 | ssh     | OpenSSH 7.2p2 | port différent     |
