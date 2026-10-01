@@ -58,7 +58,12 @@ site:portal.international.htb inurl:admin
 ---
 
 ## PHASE 2 - Reconnaissance active (sans être connecté)
-
+```
+200 → Page accessible    = Explorer immédiatement
+301/302 → Redirection    = Suivre
+403 → Forbidden          = Noter, creuser plus tard
+404 → Not found          = Ignorer
+```
 ### Dirbusting
 ```bash
 # Wordlist générique
