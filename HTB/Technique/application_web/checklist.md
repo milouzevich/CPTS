@@ -1,3 +1,4 @@
+```
 1. RECONNAISSANCE
    → Quels ports ? Quels services ? Quelles versions ?
    → Chercher CVE connus sur les versions
@@ -23,3 +24,4 @@
 5. PRIVESC
    → LinPEAS/WinPEAS
    → Analyser les résultats un par un
+```
