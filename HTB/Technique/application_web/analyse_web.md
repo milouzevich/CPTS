@@ -12,6 +12,21 @@ Tu identifies les exploits potentiels
           ↓
 Tu cherches comment les appliquer
 ```
+
+utilisation de searchsploit
+```bash
+# rechercher un exploit
+searchsploit apache 2.2.3
+
+# Consulter le contenu d'un exploit
+searchsploit -x php/webapps/18650.py
+
+# Charger le script
+searchsploit -m php/webapps/18650.py
+```
+
+
+
 Crée ta propre cheatsheet — note chaque commande nouvelle que tu apprends :
 ```bash
 # PRIVESC LINUX
