@@ -104,7 +104,10 @@ sudo ntpdate dc.baby.vl
 2026-08-04 03:14:10.600900 (-0400) +2.599165 +/- 0.010673 dc.baby.vl 10.129.234.71 s1 no-leap
 CLOCK: time stepped by 2.599165
 ```
-
+| Port | Service | Version       | Intérêt            |
+| ---- | ------- | ------------- | ------------------ |
+| 80   | HTTP    | Apache/2.4.18 | systeme de fichier |
+| 2222 | ssh     | OpenSSH 7.2p2 | port différent     |
 
 
 ## Enumération
@@ -127,12 +130,19 @@ https://www.hackingarticles.in/a-detailed-guide-on-wfuzz/
 
 DIRECTORY-LISTING 
 ```
+# Listing pour dégrossir
+/usr/share/wordlists/seclists/Discovery/Web-Content/common.txt
+# Listing pour approfondir
 /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 
 
 feroxbuster -u http://name.htb
 gobuster dir -u http://name.htb/ -w  /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -f
 gobuster dir -u http://name.htb/ -w  /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -e php, html,txt -b 302 -f 
+gobuster dir -u http://name.htb/ -w  /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+gobuster dir -u http://name.htb/ -w  /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -f
+gobuster dir -u http://name.htb/ -w  /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e php, html,txt -b 302 -f 
+
 gobuster dir -u http://10.10.10.85:3000/ -w  /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt 
 
 # recherche des types fichier extension
