@@ -33,7 +33,13 @@ Voici le carnet complet :
    mot_clé_requis/../../etc/passwd (filtre sur string)
 
 4. Escalader vers RCE
+
+5. Utilisation des filtres
+
+
 ```
+
+
 
 **Vecteurs RCE depuis LFI :**
 
